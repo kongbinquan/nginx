@@ -1,7 +1,7 @@
-FROM wiggins/alpine:latest
+FROM kbqallan/alpine:latest
 
 
-MAINTAINER wiggins
+MAINTAINER kbq
 
 ARG VERSION=${VERSION:-1.14.0}
 ARG AUTOINDEX_NAME_LEN=${AUTOINDEX_NAME_LEN:-100}
