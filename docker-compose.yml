@@ -1,10 +1,10 @@
 version: '2'
 services:
   nginx:
-    container_name: nginx_server
+    container_name: nginx
     restart: always
     privileged: true
-    image: wiggins/nginx:latest
+    image: kbqallan/nginx:latest
     network_mode: host
     environment:
     - TERM=linux
