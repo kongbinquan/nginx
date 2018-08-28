@@ -16,6 +16,10 @@ Nginx_Conf_Dir=/etc/nginx-conf-example
 mkdir -p ${DATA_DIR}
 [ ! -f "$DATA_DIR/index.html" ] && echo 'Hello here, Let us see the world.' > $DATA_DIR/index.html
 
+
+if [ ! -f /var/log/message ]; then
+	mkdir /var/log/message
+fi
 if [ -d /etc/logrotate.d ]; then
 	cat > /etc/logrotate.d/nginx <<-EOF
 		${LOG_DATADIR}/*.log {
@@ -77,5 +81,6 @@ fi
 #if [[ -n ${SUPERVISOR_PORT} ]]; then
 #	sed -i "s/^port.*/port = 0.0.0.0:${SUPERVISOR_PORT}/" /etc/supervisord.conf
 #fi
+	
 
 supervisord -n -c /etc/supervisord.conf
